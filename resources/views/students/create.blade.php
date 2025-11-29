@@ -100,8 +100,8 @@
                             <label for="status" class="form-label">Statut <span class="text-danger">*</span></label>
                             <select class="form-select @error('status') is-invalid @enderror" id="status" name="status" required>
                                 <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Actif</option>
-                                <option value="inactive" {{ old('status') == 'inactive' ? 'selected' : '' }}>Inactif</option>
-                                <option value="graduated" {{ old('status') == 'graduated' ? 'selected' : '' }}>Diplômé</option>
+                                <option value="inactif" {{ old('status') == 'inactif' ? 'selected' : '' }}>Inactif</option>
+                                <option value="diplômé" {{ old('status') == 'diplômé' ? 'selected' : '' }}>Diplômé</option>
                             </select>
                             @error('status')
                                 <div class="invalid-feedback">{{ $message }}</div>

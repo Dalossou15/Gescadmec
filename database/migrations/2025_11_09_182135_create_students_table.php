@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('level'); // Niveau d'étude
             $table->string('matricule')->unique(); // Numéro d'étudiant
-            $table->enum('status', ['active', 'inactive', 'graduated'])->default('active');
+            $table->enum('status', ['active', 'inactif', 'diplômé'])->default('active');
             $table->timestamps();
         });
     }

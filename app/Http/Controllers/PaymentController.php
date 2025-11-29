@@ -58,7 +58,7 @@ class PaymentController extends Controller
      */
     public function create(Request $request)
     {
-        $students = Student::where('status', 'active')->get();
+        $students = Student::all();
         $inscriptions = collect();
         
         if ($request->has('student_id')) {

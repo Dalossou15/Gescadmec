@@ -21,9 +21,10 @@
                                     <label for="student_id" class="form-label">Étudiant <span class="text-danger">*</span></label>
                                     <select name="student_id" id="student_id" class="form-select @error('student_id') is-invalid @enderror" required onchange="this.form.submit()">
                                         <option value="">Sélectionner un étudiant</option>
+
                                         @foreach($students as $student)
                                             <option value="{{ $student->id }}" {{ old('student_id', request('student_id')) == $student->id ? 'selected' : '' }}>
-                                                {{ $student->full_name }} - {{ $student->matricule }}
+                                                {{ $student->first_name }} - {{ $student->matricule }}
                                             </option>
                                         @endforeach
                                     </select>

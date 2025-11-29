@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Inscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 
 class StudentController extends Controller
 {
@@ -61,7 +63,7 @@ class StudentController extends Controller
             'address' => 'nullable|string|max:500',
             'level' => 'required|string|max:100',
             'matricule' => 'required|string|unique:students,matricule|max:50',
-            'status' => 'required|in:active,inactive,graduated'
+            'status' => 'required|in:active,inactif,diplômé'
         ]);
 
         if ($validator->fails()) {
@@ -81,6 +83,8 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
+
+        $students = Student::all();
         $student->load(['inscriptions.payments', 'needs']);
         return view('students.show', compact('student'));
     }
@@ -107,7 +111,7 @@ class StudentController extends Controller
             'address' => 'nullable|string|max:500',
             'level' => 'required|string|max:100',
             'matricule' => 'required|string|unique:students,matricule,' . $student->id . '|max:50',
-            'status' => 'required|in:active,inactive,graduated'
+            'status' => 'required|in:active,inactif,diplômé'
         ]);
 
         if ($validator->fails()) {

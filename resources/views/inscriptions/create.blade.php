@@ -24,10 +24,11 @@
                                     <select name="student_id" id="student_id" class="form-control @error('student_id') is-invalid @enderror" required>
                                         <option value="">Sélectionner un étudiant</option>
                                         @foreach($students as $student)
-                                            <option value="{{ $student->id }}" {{ old('student_id') == $student->id ? 'selected' : '' }}>
+                                            <option value="{{ $student->student_id }}" {{ old('student_id') == $student->student_id ? 'selected' : '' }}>
                                                 {{ $student->first_name }} {{ $student->last_name }} - {{ $student->matricule }}
                                             </option>
                                         @endforeach
+
                                     </select>
                                     @error('student_id')
                                         <div class="invalid-feedback">{{ $message }}</div>

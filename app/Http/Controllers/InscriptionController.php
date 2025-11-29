@@ -43,7 +43,7 @@ class InscriptionController extends Controller
      */
     public function create(Request $request)
     {
-        $students = Student::where('status', 'active')->get();
+        $students = Student::all();
         $student_id = $request->input('student_id');
         
         return view('inscriptions.create', compact('students', 'student_id'));
