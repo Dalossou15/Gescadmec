@@ -129,6 +129,23 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="status" class="form-label">Statut <span class="text-danger">*</span></label>
+                                    <select name="status" id="status" class="form-select @error('status') is-invalid @enderror" required>
+                                        <option value="">Sélectionner</option>
+                                        <option value="pending" {{ old('status', 'pending') == 'pending' ? 'selected' : '' }}>En attente</option>
+                                        <option value="confirmed" {{ old('status') == 'confirmed' ? 'selected' : '' }}>Confirmée</option>
+                                        <option value="cancelled" {{ old('status') == 'cancelled' ? 'selected' : '' }}>Annulée</option>
+                                    </select>
+                                    @error('status')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
                         @if(session('error'))
                             <div class="alert alert-danger">
                                 <i class="fas fa-exclamation-triangle"></i> {{ session('error') }}
